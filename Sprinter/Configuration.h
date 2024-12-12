@@ -17,7 +17,7 @@
 // Gen 3 Plus = 21
 // gen 3  Monolithic Electronics = 22
 // Gen3 PLUS for TechZone Gen3 Remix Motherboard = 23
-#define MOTHERBOARD 33
+#define MOTHERBOARD 4
 
 //// Thermistor settings:
 // 1 is 100k thermistor
@@ -28,11 +28,11 @@
 // 6 is EPCOS 100k
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
 #define THERMISTORHEATER 1
-#define THERMISTORBED 1
+//#define THERMISTORBED 1
 
 //// Calibration variables
 // X, Y, Z, E steps per unit - Metric Prusa Mendel with Wade extruder:
-#define _AXIS_STEP_PER_UNIT {80, 80, 3200/1.25,700}
+#define _AXIS_STEP_PER_UNIT {14.069333333333333333333333333333, 14.069333333333333333333333333333, 26.38,117.25}
 // Metric Prusa Mendel with Makergear geared stepper extruder:
 //#define _AXIS_STEP_PER_UNIT {80,80,3200/1.25,1380}
 // MakerGear Hybrid Prusa Mendel:
@@ -50,11 +50,11 @@ const bool Y_ENDSTOP_INVERT = false;
 const bool Z_ENDSTOP_INVERT = false;
 
 // This determines the communication speed of the printer
-#define BAUDRATE 115200
+#define BAUDRATE 19200
 //#define BAUDRATE 250000
 
 // Comment out (using // at the start of the line) to disable SD support:
-#define SDSUPPORT
+//#define SDSUPPORT
 
 // Uncomment to make run init.g from SD on boot
 //#define SDINITFILE
@@ -139,15 +139,15 @@ const bool max_software_endstops = true; //If true, axis won't move to coordinat
 //-----------------------------------------------------------------------
 //Max Length for Prusa Mendel, check the ways of your axis and set this Values
 //-----------------------------------------------------------------------
-const int X_MAX_LENGTH = 200;
-const int Y_MAX_LENGTH = 200;
-const int Z_MAX_LENGTH = 100;
+const int X_MAX_LENGTH = 40;
+const int Y_MAX_LENGTH = 40;
+const int Z_MAX_LENGTH = 40;
 
 //-----------------------------------------------------------------------
 //// MOVEMENT SETTINGS
 //-----------------------------------------------------------------------
 const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z, E
-#define _MAX_FEEDRATE {400, 400, 2, 45}       // (mm/sec)    
+#define _MAX_FEEDRATE {100, 250, 300, 45}       // (mm/sec)    
 #define _HOMING_FEEDRATE {1500,1500,120}      // (mm/min) !!
 #define _AXIS_RELATIVE_MODES {false, false, false, false}
 
@@ -156,7 +156,7 @@ const int NUM_AXIS = 4; // The axis order in all axis related arrays is X, Y, Z,
 //For the retract (negative Extruder) move this maxiumum Limit of Feedrate is used
 //The next positive Extruder move use also this Limit, 
 //then for the next (second after retract) move the original Maximum (_MAX_FEEDRATE) Limit is used
-#define MAX_RETRACT_FEEDRATE 100    //mm/sec
+#define MAX_RETRACT_FEEDRATE 300    //mm/sec
 
 //-----------------------------------------------------------------------
 //// Not used at the Moment
@@ -246,7 +246,7 @@ const int dropsegments=5; //everything with less than this number of steps will 
 
 //With this option its possible to drive the fan with SOFT PWM (500hz) and use
 //every Digital output for it, main usage for Sanguinololu
-#define FAN_SOFT_PWM
+//#define FAN_SOFT_PWM
 
 //-----------------------------------------------------------------------
 //// MINIMUM START SPEED FOR FAN
@@ -255,10 +255,10 @@ const int dropsegments=5; //everything with less than this number of steps will 
 //Minimum start speed for FAN when the last speed was zero
 //Set to 0 to deaktivate
 //If value is set the fan will drive with this minimum speed for MINIMUM_FAN_START_TIME
-#define MINIMUM_FAN_START_SPEED  0
+//#define MINIMUM_FAN_START_SPEED  0
 
 //This is the time how long the minimum FAN speed is set
-#define MINIMUM_FAN_START_TIME  6000    //6sec
+//#define MINIMUM_FAN_START_TIME  6000    //6sec
 
 //-----------------------------------------------------------------------
 //// HEATERCONTROL AND PID PARAMETERS
@@ -356,18 +356,18 @@ const int dropsegments=5; //everything with less than this number of steps will 
 //#define HEATER_USES_MAX6675
 
 // Select one of these only to define how the bed temp is read.
-#define BED_USES_THERMISTOR
+//#define BED_USES_THERMISTOR
 //#define BED_USES_AD595
 
 //This is for controlling a fan to cool down the stepper drivers
 //it will turn on when any driver is enabled
 //and turn off after the set amount of seconds from last driver being disabled again
 //#define CONTROLLERFAN_PIN 23 //Pin used for the fan to cool controller, comment out to disable this function
-#define CONTROLLERFAN_SEC 60 //How many seconds, after all motors were disabled, the fan should run
+//#define CONTROLLERFAN_SEC 60 //How many seconds, after all motors were disabled, the fan should run
 
 //This is for controlling a fan that will keep the extruder cool.
 //#define EXTRUDERFAN_PIN 66 //Pin used to control the fan, comment out to disable this function
-#define EXTRUDERFAN_DEC 50 //Hotend temperature from where the fan will be turned on
+//#define EXTRUDERFAN_DEC 50 //Hotend temperature from where the fan will be turned on
 
 //#define CHAIN_OF_COMMAND 1 //Finish buffered moves before executing M42, fan speed, heater target, and so...
 
